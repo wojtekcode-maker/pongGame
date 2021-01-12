@@ -1,18 +1,18 @@
 html {
- /* stół */
+ /* table */
  --tableWidth: 700px;
  --tableHeight: 400px;
  --tableColor: #333;
- /* rakietka */
+ /* paddle */
  --paddleWidth: 25px;
  --paddleHeight: 80px;
  --paddleColor: yellow;
- /* piłka */
+ /* ball */
  --ballSize: 20px;
  --ballColor: white;
- /* pozycja */
+ /* paddle position */
  --paddleFromEdge: 50px;
- /* czas animacji */
+ /* animation time */
  --animationTime: 5s;
 }
 
@@ -41,7 +41,7 @@ html {
  background-color: var(--ballColor);
  border-radius: 50%;
 
- /* Stwórz animację ballMove */
+ /* Animation ballMove */
  animation: ballMove var(--animationTime) linear both;
 
 }
@@ -52,22 +52,22 @@ html {
  background-color: var(--paddleColor);
 }
 
-/* rakietka lewa strona */
+/* Paddle left side */
 
 .player {
  top: calc(50% - var(--paddleHeight)/2);
 
  left: var(--paddleFromEdge);
- /* utwórz animację ruchu dla paletki po lewej stronie */
+ /* Move animation for left paddle */
  animation: playerPaddle var(--animationTime) linear both;
 }
 
-/* prawa strona */
+/* Paddle right side */
 
 .ai {
  top: calc(50% - var(--paddleHeight)/2);
  right: var(--paddleFromEdge);
- /* utwórz animację ruchu dla paletki po prawej stronie */
+ /* Move animation for right paddle */
  animation: aiPaddle var(--animationTime) linear both;
 }
 
@@ -82,7 +82,7 @@ html {
 
  color: black;
  transform: scale(0);
- /* Utwórz animację, któa pokaże wynik po zakończeniu gry */
+ /* Game result */
  animation: showResult 1s calc(var(--animationTime) + 1s) both;
 }
 
