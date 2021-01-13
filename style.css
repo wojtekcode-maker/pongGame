@@ -103,6 +103,25 @@ html {
     left: 605px;
   }
 
+  40% {
+    top: calc(100% - var(--ballSize));
+    left: 350px;
+  }
+
+  60% {
+    top: calc(var(--paddleHeight) + 7%);
+    left: calc(var(--paddleFromEdge) + var(--paddleWidth));
+  }
+
+  80% {
+    top: 0;
+    left: calc(100% - var(--paddleHeight)*3)
+  }
+
+  100% {
+    top: calc(var(--paddleHeight) + var(--ballSize));
+    left: 101%;
+  }
 }
 
 @keyframes playerPaddle {
@@ -115,7 +134,7 @@ html {
   }
 
   60% {
-    top: var(--paddleHeight)
+    top: var(--paddleHeight);
   }
 
   80% {
@@ -142,4 +161,5 @@ html {
   }
 }
 
+/* message */
 @keyframes showResult {}
