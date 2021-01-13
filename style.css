@@ -1,114 +1,125 @@
 html {
- /* table */
- --tableWidth: 700px;
- --tableHeight: 400px;
- --tableColor: #333;
- /* paddle */
- --paddleWidth: 25px;
- --paddleHeight: 80px;
- --paddleColor: yellow;
- /* ball */
- --ballSize: 20px;
- --ballColor: white;
- /* paddle position */
- --paddleFromEdge: 50px;
- /* animation time */
- --animationTime: 5s;
+  /* table */
+  --tableWidth: 700px;
+  --tableHeight: 400px;
+  --tableColor: #333;
+  /* paddle */
+  --paddleWidth: 25px;
+  --paddleHeight: 80px;
+  --paddleColor: yellow;
+  /* ball */
+  --ballSize: 20px;
+  --ballColor: white;
+  /* paddle position */
+  --paddleFromEdge: 50px;
+  /* animation time */
+  --animationTime: 5s;
 }
 
 .table,
 .ball,
 .paddle,
 .result {
- position: absolute;
+  position: absolute;
 }
 
 .table {
- width: var(--tableWidth);
- height: var(--tableHeight);
- background-color: var(--tableColor);
- position: absolute;
- top: 50%;
- left: 50%;
- transform: translate(-50%, -50%);
+  width: var(--tableWidth);
+  height: var(--tableHeight);
+  background-color: var(--tableColor);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .ball {
- width: var(--ballSize);
- height: var(--ballSize);
- top: calc(50% - var(--ballSize)/2);
- left: calc(50% - var(--ballSize)/2);
- background-color: var(--ballColor);
- border-radius: 50%;
+  width: var(--ballSize);
+  height: var(--ballSize);
+  top: calc(50% - var(--ballSize)/2);
+  left: calc(50% - var(--ballSize)/2);
+  background-color: var(--ballColor);
+  border-radius: 50%;
 
- /* Animation ballMove */
- animation: ballMove var(--animationTime) linear both;
+  /* Animation ballMove */
+  animation: ballMove var(--animationTime) linear both;
 
 }
 
 .paddle {
- width: var(--paddleWidth);
- height: var(--paddleHeight);
- background-color: var(--paddleColor);
+  width: var(--paddleWidth);
+  height: var(--paddleHeight);
+  background-color: var(--paddleColor);
 }
 
 /* Paddle left side */
 
 .player {
- top: calc(50% - var(--paddleHeight)/2);
+  top: calc(50% - var(--paddleHeight)/2);
 
- left: var(--paddleFromEdge);
- /* Move animation for left paddle */
- animation: playerPaddle var(--animationTime) linear both;
+  left: var(--paddleFromEdge);
+  /* Move animation for left paddle */
+  animation: playerPaddle var(--animationTime) linear both;
 }
 
 /* Paddle right side */
 
 .ai {
- top: calc(50% - var(--paddleHeight)/2);
- right: var(--paddleFromEdge);
- /* Move animation for right paddle */
- animation: aiPaddle var(--animationTime) linear both;
+  top: calc(50% - var(--paddleHeight)/2);
+  right: var(--paddleFromEdge);
+  /* Move animation for right paddle */
+  animation: aiPaddle var(--animationTime) linear both;
 }
 
 .result {
-
- width: 100%;
- left: 0;
- top: 10%;
- text-transform: uppercase;
- text-align: center;
- font-family: sans-serif;
-
- color: black;
- transform: scale(0);
- /* Game result */
- animation: showResult 1s calc(var(--animationTime) + 1s) both;
+  width: 100%;
+  left: 0;
+  top: 10%;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: sans-serif;
+  color: black;
+  transform: scale(0);
+  /* Game result */
+  animation: showResult 1s calc(var(--animationTime) + 1s) both;
 }
 
 
 @keyframes ballMove {
 
- /* left: 75px - lewa */
- /* left: 605px - prawa */
- /* top: 0 - góra */
- /* top: 380px - góra */
- /* left: 340px - środek */
- /* do pokonania 530px (między rakietkami) na 40% czyli 13px na 1% - prędkość piłki*/
- /* 0% {
+  /* left: 75px - lewa */
+  /* left: 605px - prawa */
+  /* top: 0 - góra */
+  /* top: 380px - góra */
+  /* left: 340px - środek */
+  /* do pokonania 530px (między rakietkami) na 40% czyli 13px na 1% - prędkość piłki*/
+  /* 0% {
         top: calc(50% - var(--ballSize)/2);
         left: calc(50% - var(--ballSize)/2);
       } */
- 20% {
-  top: 340px;
-  /* left: calc(var(--tableWidth) - var(--paddleFromEdge) - var(--paddleWidth) - var(--ballSize)); */
-  left: 605px;
- }
+  20% {
+    top: 340px;
+    /* left: calc(var(--tableWidth) - var(--paddleFromEdge) - var(--paddleWidth) - var(--ballSize)); */
+    left: 605px;
+  }
 
 }
 
 @keyframes playerPaddle {}
 
-@keyframes aiPaddle {}
+@keyframes aiPaddle {
+  20% {
+    top: 300px;
+    right: var(--paddleFromEdge);
+  }
+
+  25% {
+    top: calc(var(--tableHeight) - var(--paddleHeight));
+  }
+
+  100% {
+    top: var(--paddleHeight);
+  }
+}
 
 @keyframes showResult {}
