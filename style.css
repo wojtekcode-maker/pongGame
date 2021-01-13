@@ -105,7 +105,27 @@ html {
 
 }
 
-@keyframes playerPaddle {}
+@keyframes playerPaddle {
+  20% {
+    top: 50%;
+  }
+
+  25% {
+    top: 300px;
+  }
+
+  60% {
+    top: var(--paddleHeight)
+  }
+
+  80% {
+    top: 10%;
+  }
+
+  100% {
+    top: 10%;
+  }
+}
 
 @keyframes aiPaddle {
   20% {
